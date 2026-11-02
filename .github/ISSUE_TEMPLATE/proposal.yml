@@ -1,0 +1,21 @@
+name: Spec question or proposal
+description: Ask about SPEC.md, or propose a change to the protocol or the API.
+labels: [spec]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the question or the problem?
+      description: For a proposal, describe what you can't do today before suggesting how to change it.
+    validations:
+      required: true
+  - type: input
+    id: sections
+    attributes:
+      label: SPEC.md sections involved
+      placeholder: "§7.6, §8.4"
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change (optional)
+      description: Say whether it would change bytes on the wire. A wire change needs a new suite id (SPEC §18).

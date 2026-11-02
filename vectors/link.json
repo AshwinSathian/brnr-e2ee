@@ -1,0 +1,89 @@
+{
+ "description": "Device-link ceremony (SPEC §13): transcript, commitment, code and seal",
+ "old": {
+  "seed": "766563746f722f6c696e6b2d6f6c640000000000000000000000000000000000",
+  "tape": [
+   {
+    "purpose": "health",
+    "bytes": "de1b02fc36c723896444988cd2ed6c04972f02383ac17725dce44baa276d5ee4"
+   },
+   {
+    "purpose": "health",
+    "bytes": "faf84aacfbc35b9c406888b0b300c916b4dce4a493e675f22b4ee100a9a8b96c"
+   },
+   {
+    "purpose": "seed",
+    "bytes": "ac50692363b2b65163a7a585dd190b850e98d348c2d9489c3c4746bd6f197c2f"
+   },
+   {
+    "purpose": "seed",
+    "bytes": "8afaa9f77ad7fde0afebcb83725b1ae312e0395d07cadf14678ebb43fc946c8d"
+   },
+   {
+    "purpose": "nonce",
+    "bytes": "10658c58420d8601ea2af504847582208ed9e7f92e926df2"
+   }
+  ]
+ },
+ "new": {
+  "seed": "766563746f722f6c696e6b2d6e65770000000000000000000000000000000000",
+  "tape": [
+   {
+    "purpose": "health",
+    "bytes": "be9c6298e8b5e624bf4f80a9fb3c7e6b76b20591449bbc7c15387a5baaedfa52"
+   },
+   {
+    "purpose": "health",
+    "bytes": "b34979387ce47bc5b4aaa4e87d39909f45a43490799db04d89a2db2b7ab2fd50"
+   },
+   {
+    "purpose": "seed",
+    "bytes": "c2030e31b6b0e94739f066f71a7e3edc48fc161e2e55b3b8bd30dea19db1969f"
+   },
+   {
+    "purpose": "seed",
+    "bytes": "e6d296d1e71e1324348fe3c93d39f4dbdddb2551dd5e42ffdf66fea485bfe396"
+   },
+   {
+    "purpose": "link-request",
+    "bytes": "7a2e370ffe3304271f2ac159883328b4"
+   },
+   {
+    "purpose": "seed",
+    "bytes": "d962954acebcb72c67d26eb20ae4557a9276b12f32947487b8ece4293d71958e"
+   }
+  ]
+ },
+ "account": {
+  "v": 1,
+  "signPk": "JTzIdtd59ivsddvbOQb8AmpoYkZPi9aMmk3LJjtsOvg",
+  "signSk": "rFBpI2OytlFjp6WF3RkLhQ6Y00jC2UicPEdGvW8ZfC8"
+ },
+ "transcriptInput": {
+  "requestId": "ei43D_4zBCcfKsFZiDMotA",
+  "accountId": "account-1",
+  "newDeviceId": "new-device",
+  "newDeviceSignPk": "P59Waif_ot2j1DyoESBjBwmv5aJvmroU6GrRWM9yBlU",
+  "newDeviceBoxPk": "wE7AwK2Q27MKRhpwBuh82b10EXvzSoQQ8ndtl8T5uSk",
+  "suites": [
+   "x25519-xchacha20poly1305-sha256-v1"
+  ]
+ },
+ "transcript": "goacowB5u3DMA7jDrYtD1Y4RTABdvVL3aGXVWl15AkE",
+ "ephNew": {
+  "pk": "kVURbh5BpgXCvPPk8i8fkvl6racG5HezgJ2ij8yTWF8",
+  "sk": "2WKVSs68tyxn0m6yCuRVepJ2sS8ylHSHuOzkKT1xlY4"
+ },
+ "ephOld": {
+  "pk": "gq7C26CK6OP7jsMJoFupOOsu-8Ct_mlyjhpPRzbTTng",
+  "sk": "ivqp93rX_eCv68uDclsa4xLgOV0Hyt8UZ467Q_yUbI0"
+ },
+ "commitment": "s77WhCD_BeGh2aTUEkNgDlXIZeAFuyxnDjjvqTKYtEc",
+ "code": "185248",
+ "sealed": "EGWMWEINhgHqKvUEhHWCII7Z5_kukm3yE1heNVIddFJA9ITvGxuHHuLwqXjeM8z6iyZxwVt0IssDkVVSPsJBmOK8FVBo8xWKhn-FooCjNiahet4vYfp1yT5nfhH99HFYUb8jTm7eH1dDCdSYp844SSxOgaXcB49qGDsCm8VFhAkDVCPbQG8hFzeZdCNvpSQHOAjGmhoLcQQmH-3UGQ",
+ "opened": {
+  "v": 1,
+  "signPk": "JTzIdtd59ivsddvbOQb8AmpoYkZPi9aMmk3LJjtsOvg",
+  "signSk": "rFBpI2OytlFjp6WF3RkLhQ6Y00jC2UicPEdGvW8ZfC8"
+ }
+}

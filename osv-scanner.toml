@@ -1,0 +1,19 @@
+# Dev-only esbuild (via tsup and vite). The advisory affects esbuild's dev server on
+# Windows, which this repo never runs. Re-check when tsup allows esbuild >= 0.28.1.
+[[IgnoredVulns]]
+id = "GHSA-g7r4-m6w7-qqqr"
+ignoreUntil = 2027-01-21T00:00:00Z
+reason = "Dev-only dependency; affected esbuild serve mode is never used."
+
+# Dev-only glob and minimatch (via eslint, Stryker and license-checker). The fixes are
+# new majors that those tools don't accept yet, and they only ever see this repo's own
+# file patterns. Re-check when Dependabot can move them.
+[[IgnoredVulns]]
+id = "GHSA-3g3m-2fjr-6pw4"
+ignoreUntil = 2027-01-31T00:00:00Z
+reason = "Dev-only glob; no untrusted patterns or AbortSignal use."
+
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+ignoreUntil = 2027-01-31T00:00:00Z
+reason = "Dev-only minimatch; patterns come only from this repo's config."

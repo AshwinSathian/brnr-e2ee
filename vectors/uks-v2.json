@@ -1,0 +1,476 @@
+{
+ "description": "Unknown-key-share attempts against suite v2 (SPEC §6.5). Every refused receive leaves Bob without a session.",
+ "cases": [
+  {
+   "description": "Eve signs a bundle under deviceId eve-dev carrying Bob's box key and SPK; Alice's suite v2 message to it is refused by Bob (E2EE_IDENTITY_MISMATCH), and rewriting the handshake to name Bob fails the AEAD",
+   "generator": "scripts/gen-vectors.ts",
+   "conversationId": "conv-vectors",
+   "startTime": "2026-10-22T12:00:00.000Z",
+   "parties": [
+    {
+     "name": "alice",
+     "seed": "766563746f722f616c6963650000000000000000000000000000000000000000",
+     "deviceId": "alice-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "6eb99a02e4a0e5fd80bc9c8b1c644477c041c59cf9ecb162ed82ff01e6d97d52"
+      },
+      {
+       "purpose": "health",
+       "bytes": "40cc4bf09669ffa3bcc2b7e33f868c691db8ff14b73b2d5ccd7fe5f02f056e7f"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "c57df5364be9b2a43b3d38e9d72b268b7e5780845a52dcdb426af1aff9834e0a"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "69a9e1b6891ff2ec53d39a186cff4f1cb5433d28561c65cad5c63cf0fcaafd2c"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "8ae24805ea38d28f9f9ca53710412e968975b7fa834229f21f8c72122059e96d"
+      },
+      {
+       "purpose": "ek",
+       "bytes": "81e0bff7532422b643d80c9d1ffd616e51de11cdd56628366d105242b4413b75"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e9992a8d36b3d3280d6fca854de7a889aaaea371e7a692913b5b58d3800d9fac"
+      },
+      {
+       "purpose": "nonce",
+       "bytes": "d692c560e20cf30ae4fa3704cb87af9540e012a5731412d5"
+      }
+     ]
+    },
+    {
+     "name": "bob",
+     "seed": "766563746f722f626f6200000000000000000000000000000000000000000000",
+     "deviceId": "bob-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "0ccba5fb8f29c32bb18fd66d011dcd7de35ca2a1a49cac4655fc343a47cf8113"
+      },
+      {
+       "purpose": "health",
+       "bytes": "d386df431c9783b7655b7f4f2060589a0bc172dad75999f5593b2a45a64e9afd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "5575e5945f91bf5d947e514f3f8b2d9b805a4cbdd87db4ffca6780ed414777c7"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "9b74a3102653b3139151f88058aa2c47a64b2da4bba69ae51b6a2b074bc1e766"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a152437c524c92ad725e936cc38447c96e182357586ed1d11479b7a46bbb28fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "83ed4a7d2dbf7ab6836c3dff60f839c9b8d61fd67f2beaccb2b26cde2fa1360b"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e940e6fe47d1e050c91b02bd2dbeefac4f691ff000f90e0c33e2853d0841019a"
+      }
+     ]
+    },
+    {
+     "name": "eve",
+     "seed": "766563746f722f65766500000000000000000000000000000000000000000000",
+     "deviceId": "eve-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "3f54e8d96d990216f06b417b262491a9849ea3af633c52723970276b07a8fcf0"
+      },
+      {
+       "purpose": "health",
+       "bytes": "1839ad331a6af90fddb480688b03c5b07650bf699717d6c5edb58c3006d277cb"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "aa1693664d59fc87d4b41ccac4b5f0b492ca40cadb56013dbc84b8e54239ef42"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "afd51da0b54ba6cc4eba159d03b88c720caa14da3316fb264acd7b47a7b4e4fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a5b69e6b307337b50520e16f46550595238554d22d80a0ba415b8b9f7839a2de"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "initiate",
+     "by": "alice",
+     "to": "bob",
+     "otp": true,
+     "forgedBy": "eve",
+     "deviceId": "eve-dev"
+    },
+    {
+     "type": "send",
+     "by": "alice",
+     "to": "bob",
+     "plaintext": "for Eve only",
+     "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"eve-dev\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"QlW0fxSMp31nrvbnrfz-to6AgBPLv_o9AckkSI8cVyDs-iK_i8bb7aukLshaCGhrPBUhJdwyLbBGncaVWkRSWjO4eTn5-O7eZhQes968BnE\",\"handshake\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"initiatorSignPk\":\"jD4oj1diWY1EkGdc0O8MI3YaUDd2d7EjiZO7WjD3bVY\",\"otpId\":1,\"responderDeviceId\":\"eve-dev\",\"responderSignPk\":\"Ql_dy-tfBStgSutGYR-uynqMkO9hgxKLceRUFTQU_gw\",\"spkId\":1,\"v\":2},\"header\":{\"dh\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"n\":0,\"pn\":0,\"sid\":\"5zkQ3JbSHkM\"},\"nonce\":\"1pLFYOIM8wrk-jcEy4evlUDgEqVzFBLV\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "error": "E2EE_IDENTITY_MISMATCH"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "tamper": "retarget to bob",
+     "error": "E2EE_DECRYPT_FAILED"
+    }
+   ]
+  },
+  {
+   "description": "Eve signs a bundle under deviceId bob-dev carrying Bob's box key and SPK; Alice's suite v2 message to it is refused by Bob (E2EE_IDENTITY_MISMATCH), and rewriting the handshake to name Bob fails the AEAD",
+   "generator": "scripts/gen-vectors.ts",
+   "conversationId": "conv-vectors",
+   "startTime": "2026-10-22T12:00:00.000Z",
+   "parties": [
+    {
+     "name": "alice",
+     "seed": "766563746f722f616c6963650000000000000000000000000000000000000000",
+     "deviceId": "alice-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "6eb99a02e4a0e5fd80bc9c8b1c644477c041c59cf9ecb162ed82ff01e6d97d52"
+      },
+      {
+       "purpose": "health",
+       "bytes": "40cc4bf09669ffa3bcc2b7e33f868c691db8ff14b73b2d5ccd7fe5f02f056e7f"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "c57df5364be9b2a43b3d38e9d72b268b7e5780845a52dcdb426af1aff9834e0a"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "69a9e1b6891ff2ec53d39a186cff4f1cb5433d28561c65cad5c63cf0fcaafd2c"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "8ae24805ea38d28f9f9ca53710412e968975b7fa834229f21f8c72122059e96d"
+      },
+      {
+       "purpose": "ek",
+       "bytes": "81e0bff7532422b643d80c9d1ffd616e51de11cdd56628366d105242b4413b75"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e9992a8d36b3d3280d6fca854de7a889aaaea371e7a692913b5b58d3800d9fac"
+      },
+      {
+       "purpose": "nonce",
+       "bytes": "d692c560e20cf30ae4fa3704cb87af9540e012a5731412d5"
+      }
+     ]
+    },
+    {
+     "name": "bob",
+     "seed": "766563746f722f626f6200000000000000000000000000000000000000000000",
+     "deviceId": "bob-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "0ccba5fb8f29c32bb18fd66d011dcd7de35ca2a1a49cac4655fc343a47cf8113"
+      },
+      {
+       "purpose": "health",
+       "bytes": "d386df431c9783b7655b7f4f2060589a0bc172dad75999f5593b2a45a64e9afd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "5575e5945f91bf5d947e514f3f8b2d9b805a4cbdd87db4ffca6780ed414777c7"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "9b74a3102653b3139151f88058aa2c47a64b2da4bba69ae51b6a2b074bc1e766"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a152437c524c92ad725e936cc38447c96e182357586ed1d11479b7a46bbb28fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "83ed4a7d2dbf7ab6836c3dff60f839c9b8d61fd67f2beaccb2b26cde2fa1360b"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e940e6fe47d1e050c91b02bd2dbeefac4f691ff000f90e0c33e2853d0841019a"
+      }
+     ]
+    },
+    {
+     "name": "eve",
+     "seed": "766563746f722f65766500000000000000000000000000000000000000000000",
+     "deviceId": "eve-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "3f54e8d96d990216f06b417b262491a9849ea3af633c52723970276b07a8fcf0"
+      },
+      {
+       "purpose": "health",
+       "bytes": "1839ad331a6af90fddb480688b03c5b07650bf699717d6c5edb58c3006d277cb"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "aa1693664d59fc87d4b41ccac4b5f0b492ca40cadb56013dbc84b8e54239ef42"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "afd51da0b54ba6cc4eba159d03b88c720caa14da3316fb264acd7b47a7b4e4fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a5b69e6b307337b50520e16f46550595238554d22d80a0ba415b8b9f7839a2de"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "initiate",
+     "by": "alice",
+     "to": "bob",
+     "otp": true,
+     "forgedBy": "eve",
+     "deviceId": "bob-dev"
+    },
+    {
+     "type": "send",
+     "by": "alice",
+     "to": "bob",
+     "plaintext": "for Eve only",
+     "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"bob-dev\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"2hq3cVagdUwEuJqnuXaqUbD5Dxh4Z0BzYIlr6WzlOT78jkJdAXJgtBSv0ZnAJNnhHJgF-gk4DKZKrFED7-5lHBwA5kRwogWtAPy_jaUwfE8\",\"handshake\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"initiatorSignPk\":\"jD4oj1diWY1EkGdc0O8MI3YaUDd2d7EjiZO7WjD3bVY\",\"otpId\":1,\"responderDeviceId\":\"bob-dev\",\"responderSignPk\":\"Ql_dy-tfBStgSutGYR-uynqMkO9hgxKLceRUFTQU_gw\",\"spkId\":1,\"v\":2},\"header\":{\"dh\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"n\":0,\"pn\":0,\"sid\":\"Dnrrl1PpBu0\"},\"nonce\":\"1pLFYOIM8wrk-jcEy4evlUDgEqVzFBLV\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "error": "E2EE_IDENTITY_MISMATCH"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "tamper": "retarget to bob",
+     "error": "E2EE_DECRYPT_FAILED"
+    }
+   ]
+  },
+  {
+   "description": "Bob pins, for Eve's device, Alice's box key and Eve's signing key: Alice's suite v2 message is refused (E2EE_IDENTITY_MISMATCH), rewriting initiatorSignPk to Eve's fails the AEAD, and with the right pins it decrypts",
+   "generator": "scripts/gen-vectors.ts",
+   "conversationId": "conv-vectors",
+   "startTime": "2026-10-22T12:00:00.000Z",
+   "parties": [
+    {
+     "name": "alice",
+     "seed": "766563746f722f616c6963650000000000000000000000000000000000000000",
+     "deviceId": "alice-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "6eb99a02e4a0e5fd80bc9c8b1c644477c041c59cf9ecb162ed82ff01e6d97d52"
+      },
+      {
+       "purpose": "health",
+       "bytes": "40cc4bf09669ffa3bcc2b7e33f868c691db8ff14b73b2d5ccd7fe5f02f056e7f"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "c57df5364be9b2a43b3d38e9d72b268b7e5780845a52dcdb426af1aff9834e0a"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "69a9e1b6891ff2ec53d39a186cff4f1cb5433d28561c65cad5c63cf0fcaafd2c"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "8ae24805ea38d28f9f9ca53710412e968975b7fa834229f21f8c72122059e96d"
+      },
+      {
+       "purpose": "ek",
+       "bytes": "81e0bff7532422b643d80c9d1ffd616e51de11cdd56628366d105242b4413b75"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e9992a8d36b3d3280d6fca854de7a889aaaea371e7a692913b5b58d3800d9fac"
+      },
+      {
+       "purpose": "nonce",
+       "bytes": "d692c560e20cf30ae4fa3704cb87af9540e012a5731412d5"
+      }
+     ]
+    },
+    {
+     "name": "bob",
+     "seed": "766563746f722f626f6200000000000000000000000000000000000000000000",
+     "deviceId": "bob-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "0ccba5fb8f29c32bb18fd66d011dcd7de35ca2a1a49cac4655fc343a47cf8113"
+      },
+      {
+       "purpose": "health",
+       "bytes": "d386df431c9783b7655b7f4f2060589a0bc172dad75999f5593b2a45a64e9afd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "5575e5945f91bf5d947e514f3f8b2d9b805a4cbdd87db4ffca6780ed414777c7"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "9b74a3102653b3139151f88058aa2c47a64b2da4bba69ae51b6a2b074bc1e766"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a152437c524c92ad725e936cc38447c96e182357586ed1d11479b7a46bbb28fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "83ed4a7d2dbf7ab6836c3dff60f839c9b8d61fd67f2beaccb2b26cde2fa1360b"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "e940e6fe47d1e050c91b02bd2dbeefac4f691ff000f90e0c33e2853d0841019a"
+      },
+      {
+       "purpose": "dhs",
+       "bytes": "847ea492210a922dcd70f79a3a19d5b81a6c57757ca12e57c5784192340076b4"
+      }
+     ]
+    },
+    {
+     "name": "eve",
+     "seed": "766563746f722f65766500000000000000000000000000000000000000000000",
+     "deviceId": "eve-dev",
+     "suites": [
+      "x25519-xchacha20poly1305-sha256-v2",
+      "x25519-xchacha20poly1305-sha256-v1"
+     ],
+     "tape": [
+      {
+       "purpose": "health",
+       "bytes": "3f54e8d96d990216f06b417b262491a9849ea3af633c52723970276b07a8fcf0"
+      },
+      {
+       "purpose": "health",
+       "bytes": "1839ad331a6af90fddb480688b03c5b07650bf699717d6c5edb58c3006d277cb"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "aa1693664d59fc87d4b41ccac4b5f0b492ca40cadb56013dbc84b8e54239ef42"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "afd51da0b54ba6cc4eba159d03b88c720caa14da3316fb264acd7b47a7b4e4fd"
+      },
+      {
+       "purpose": "seed",
+       "bytes": "a5b69e6b307337b50520e16f46550595238554d22d80a0ba415b8b9f7839a2de"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "initiate",
+     "by": "alice",
+     "to": "bob",
+     "otp": true
+    },
+    {
+     "type": "send",
+     "by": "alice",
+     "to": "bob",
+     "plaintext": "for Bob",
+     "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"bob-dev\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"dSThAJCZpcwfee8hcLxe6uw2GtXNQ-X7w9FS0f09Tz2KB7udZ6uB2YhZ6sU12G1SKK-8ciDYHCN6sybqpUCQWzpwGWK9TDy-TeFrqjsjYyk\",\"handshake\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"initiatorSignPk\":\"jD4oj1diWY1EkGdc0O8MI3YaUDd2d7EjiZO7WjD3bVY\",\"otpId\":1,\"responderDeviceId\":\"bob-dev\",\"responderSignPk\":\"ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w\",\"spkId\":1,\"v\":2},\"header\":{\"dh\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"n\":0,\"pn\":0,\"sid\":\"nRiARCFe6fA\"},\"nonce\":\"1pLFYOIM8wrk-jcEy4evlUDgEqVzFBLV\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "pinSignOf": "eve",
+     "error": "E2EE_IDENTITY_MISMATCH"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "tamper": "initiatorSignPk = eve",
+     "pinSignOf": "eve",
+     "error": "E2EE_DECRYPT_FAILED"
+    },
+    {
+     "type": "recv",
+     "by": "bob",
+     "from": "alice",
+     "message": 0,
+     "plaintext": "for Bob",
+     "messageKey": "JPvGFF5b5tLCPtIsQqSVHXiiEhd3vKDTeOIZ7x4mSvo"
+    }
+   ]
+  }
+ ]
+}

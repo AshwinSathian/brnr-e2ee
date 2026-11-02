@@ -1,0 +1,36 @@
+name: Bug report
+description: The library behaves differently from SPEC.md, its docs or its types.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: If this could weaken confidentiality, authenticity or replay protection, please don't file it here. Use the security advisory link on the previous page instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `npm ls brnr-e2ee`
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime
+      description: For example Node 24.19.0, Chrome 140, or React Native 0.82 on Hermes
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Quote the error code and `details` if an E2eeError was thrown. Link the SPEC.md section if you know it.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: The smallest code that shows it. A failing Vitest test is ideal.
+      render: ts
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+{
+ "description": "Safety numbers (SPEC §12). The libsignal case feeds the internal chain the 33-byte serialized keys.",
+ "source": "libsignal rust/protocol/src/fingerprint.rs tests (test values only; AGPL code not copied), commit b2a5c30f3245c1bcad04b27b1e752a38321c793d, fetched 2026-10-22",
+ "iterations": 5200,
+ "libsignal": {
+  "aliceIdentity": "0506863bc66d02b40d27b8d49ca7c09e9239236f9d7d25d6fcca5ce13c7064d868",
+  "aliceStableId": "+14152222222",
+  "bobIdentity": "05f781b6fb32fed9ba1cf2de978d4d5da28dc34046ae814402b5c0dbd96fda907b",
+  "bobStableId": "+14153333333",
+  "aliceFp32": "1e301a0353dce3dbe7684cb8336e85136cdc0ee96219494ada305d62a7bd61df",
+  "bobFp32": "d62cbf73a11592015b6b9f1682ac306fea3aaf3885b84d12bca631e9d4fb3a4d",
+  "displayable": "300354477692869396892869876765458257569162576843440918079131"
+ },
+ "api": {
+  "local": {
+   "accountSignPk": "0woUeF9_ts5DDNY5p515JaDg6LgdDOI76UXMC3w6Ycg",
+   "stableId": "local-user"
+  },
+  "remote": {
+   "accountSignPk": "fe39EMxPScQzRIVXwEw1UkWl_sT-nhk2hNl4pdvs3a4",
+   "stableId": "remote-user"
+  },
+  "digits": "386348178492645735608767661182961306455977793410219091390218",
+  "qrPayload": "0001cb14f7b30a14acfb143877a89a4c85277541d67879d564acdc7811e2f19ef73e8699a8d4622ade0a9f6f12e07b23c1a243f39d9dc3bd85e2e1922964b1eab60a"
+ }
+}

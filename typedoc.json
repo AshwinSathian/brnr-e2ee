@@ -1,0 +1,26 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts", "src/testing.ts"],
+  "out": "docs-site",
+  "name": "brnr-e2ee",
+  "readme": "README.md",
+  "projectDocuments": [
+    "SPEC.md",
+    "THREATMODEL.md",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": false
+  },
+  "treatWarningsAsErrors": true,
+  "githubPages": true,
+  "gitRevision": "main",
+  "sourceLinkExternal": true,
+  "ignoredHighlightLanguages": ["mermaid"]
+}

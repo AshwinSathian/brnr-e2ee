@@ -1,0 +1,191 @@
+{
+ "description": "Signed device list (SPEC §5.5)",
+ "seed": "766563746f722f6465766963652d6c6973740000000000000000000000000000",
+ "tape": [
+  {
+   "purpose": "health",
+   "bytes": "2ea6d83f4a2c6ecaadc07975640df26122543aaf863e492cc7307d8ab458abdc"
+  },
+  {
+   "purpose": "health",
+   "bytes": "a42f2365dd251417e8a50e3d285f673ecf8bdffe8cf3247898660e1fb1e8636c"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "32784b93fd3d759b1515e445938d0198fb1bfaff6a9281ce1b287c6d5323cb68"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "23384e15055120c836ad49bff4882b75fe8a7863940de37fdd657cc3940dace2"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "ddb1ab8bb3d3a5affff0586c329af4a9f26c69ecb93ebfdad54f23adea3b2aaa"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "206ed0c9dd6145857cdd04b541cb0af67e0700b9447a32422f6738ffab1add06"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "b200ca72df989f6a11ca84da9e4fbc6b994daa4b588924ddbe86a4aa765a0577"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "77b3db40ea1e6598b559856a9b1da5165b04f05f35b5fdc4cc231413f2d8797c"
+  },
+  {
+   "purpose": "seed",
+   "bytes": "35bf2e61ea9c5de6d01a7c51931b14d08a79482c3a155fd767afdf5cf769f8b7"
+  }
+ ],
+ "list": {
+  "v": 1,
+  "accountId": "account-1",
+  "accountSignPk": "_Adk6jQ9Vi7p5AN8t0LxDHWO7-3lxMbcu3APeWDjtG8",
+  "epoch": 7,
+  "devices": [
+   {
+    "deviceId": "dev-1",
+    "deviceSignPk": "s6eritJchVZOJv5gpeQ_3P9xGd0Pq8RE7yYR7OBNalw",
+    "deviceBoxPk": "0m8cE8wljM2TDkvlz5GI5Qy1zCGp_KOiU9LZE46mkRo",
+    "addedAt": "2026-10-22T12:00:00.000Z"
+   },
+   {
+    "deviceId": "dev-2",
+    "deviceSignPk": "I8SjbPGPKKOTGpL4hLFzt_LzqQHrK6WLC2LPMRIAAh0",
+    "deviceBoxPk": "rzrsLbNbbIF5CxPf68y9p1YDywQcu2Of61e0vFndTBE",
+    "addedAt": "2026-10-22T12:00:00.000Z",
+    "revokedAt": "2026-10-22T12:00:00.000Z"
+   }
+  ],
+  "sig": "mNpvgAf7hTxyYmuctuL-OSpAe0RfeVVeDjNfx0RGNjlxba49hZissSK62SiP47el3bml_B0rU9Bj6LIxF7L9Dw"
+ },
+ "digest": "_pQe0yT6_WfCAzZePsj98WnKAGkSOMiVuO5TPhJaaQQ",
+ "cases": [
+  {
+   "name": "valid",
+   "list": {
+    "v": 1,
+    "accountId": "account-1",
+    "accountSignPk": "_Adk6jQ9Vi7p5AN8t0LxDHWO7-3lxMbcu3APeWDjtG8",
+    "epoch": 7,
+    "devices": [
+     {
+      "deviceId": "dev-1",
+      "deviceSignPk": "s6eritJchVZOJv5gpeQ_3P9xGd0Pq8RE7yYR7OBNalw",
+      "deviceBoxPk": "0m8cE8wljM2TDkvlz5GI5Qy1zCGp_KOiU9LZE46mkRo",
+      "addedAt": "2026-10-22T12:00:00.000Z"
+     },
+     {
+      "deviceId": "dev-2",
+      "deviceSignPk": "I8SjbPGPKKOTGpL4hLFzt_LzqQHrK6WLC2LPMRIAAh0",
+      "deviceBoxPk": "rzrsLbNbbIF5CxPf68y9p1YDywQcu2Of61e0vFndTBE",
+      "addedAt": "2026-10-22T12:00:00.000Z",
+      "revokedAt": "2026-10-22T12:00:00.000Z"
+     }
+    ],
+    "sig": "mNpvgAf7hTxyYmuctuL-OSpAe0RfeVVeDjNfx0RGNjlxba49hZissSK62SiP47el3bml_B0rU9Bj6LIxF7L9Dw"
+   },
+   "opts": {
+    "minEpoch": 7,
+    "pinnedAccountSignPk": "_Adk6jQ9Vi7p5AN8t0LxDHWO7-3lxMbcu3APeWDjtG8"
+   },
+   "result": "ok"
+  },
+  {
+   "name": "tampered signature (epoch changed)",
+   "list": {
+    "v": 1,
+    "accountId": "account-1",
+    "accountSignPk": "_Adk6jQ9Vi7p5AN8t0LxDHWO7-3lxMbcu3APeWDjtG8",
+    "epoch": 8,
+    "devices": [
+     {
+      "deviceId": "dev-1",
+      "deviceSignPk": "s6eritJchVZOJv5gpeQ_3P9xGd0Pq8RE7yYR7OBNalw",
+      "deviceBoxPk": "0m8cE8wljM2TDkvlz5GI5Qy1zCGp_KOiU9LZE46mkRo",
+      "addedAt": "2026-10-22T12:00:00.000Z"
+     },
+     {
+      "deviceId": "dev-2",
+      "deviceSignPk": "I8SjbPGPKKOTGpL4hLFzt_LzqQHrK6WLC2LPMRIAAh0",
+      "deviceBoxPk": "rzrsLbNbbIF5CxPf68y9p1YDywQcu2Of61e0vFndTBE",
+      "addedAt": "2026-10-22T12:00:00.000Z",
+      "revokedAt": "2026-10-22T12:00:00.000Z"
+     }
+    ],
+    "sig": "mNpvgAf7hTxyYmuctuL-OSpAe0RfeVVeDjNfx0RGNjlxba49hZissSK62SiP47el3bml_B0rU9Bj6LIxF7L9Dw"
+   },
+   "opts": {},
+   "result": "E2EE_DEVICE_LIST_INVALID"
+  },
+  {
+   "name": "epoch rollback",
+   "list": {
+    "v": 1,
+    "accountId": "account-1",
+    "accountSignPk": "_Adk6jQ9Vi7p5AN8t0LxDHWO7-3lxMbcu3APeWDjtG8",
+    "epoch": 7,
+    "devices": [
+     {
+      "deviceId": "dev-1",
+      "deviceSignPk": "s6eritJchVZOJv5gpeQ_3P9xGd0Pq8RE7yYR7OBNalw",
+      "deviceBoxPk": "0m8cE8wljM2TDkvlz5GI5Qy1zCGp_KOiU9LZE46mkRo",
+      "addedAt": "2026-10-22T12:00:00.000Z"
+     },
+     {
+      "deviceId": "dev-2",
+      "deviceSignPk": "I8SjbPGPKKOTGpL4hLFzt_LzqQHrK6WLC2LPMRIAAh0",
+      "deviceBoxPk": "rzrsLbNbbIF5CxPf68y9p1YDywQcu2Of61e0vFndTBE",
+      "addedAt": "2026-10-22T12:00:00.000Z",
+      "revokedAt": "2026-10-22T12:00:00.000Z"
+     }
+    ],
+    "sig": "mNpvgAf7hTxyYmuctuL-OSpAe0RfeVVeDjNfx0RGNjlxba49hZissSK62SiP47el3bml_B0rU9Bj6LIxF7L9Dw"
+   },
+   "opts": {
+    "minEpoch": 8
+   },
+   "result": "E2EE_DEVICE_LIST_INVALID"
+  }
+ ],
+ "bundles": [
+  {
+   "name": "active device matches",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "dev-1",
+    "deviceSignPk": "s6eritJchVZOJv5gpeQ_3P9xGd0Pq8RE7yYR7OBNalw",
+    "deviceBoxPk": "0m8cE8wljM2TDkvlz5GI5Qy1zCGp_KOiU9LZE46mkRo",
+    "deviceBoxPkSig": "UTRVxLlYUSvPLhuD6IMms8RJATvwV0yTSv2oMsB7v2LWJs4ED1YETUdOgfG3wTS2lZJW5otmN_wlerXyFSBzBQ",
+    "spkId": 1,
+    "spkPk": "9AR4r6OvLouziHb9gCzwftj2ZWJwjdGku7TvwqOjYm0",
+    "spkSig": "Oou4Uxn1bPWAod37Egk7zhufUgXiZMMU_Sxx7oBraGa464HW8st_jbonZVEaRjVKoT-NI3YhLmVWdffwF-7ICQ",
+    "createdAt": "2026-10-22T12:00:00.000Z"
+   },
+   "matches": true
+  },
+  {
+   "name": "revoked device does not match",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "dev-2",
+    "deviceSignPk": "I8SjbPGPKKOTGpL4hLFzt_LzqQHrK6WLC2LPMRIAAh0",
+    "deviceBoxPk": "rzrsLbNbbIF5CxPf68y9p1YDywQcu2Of61e0vFndTBE",
+    "deviceBoxPkSig": "kVXRgibemNG-4_-D3r4yBz0lFuPEvfs3ytwk7e0w4fj5jjasOrPcRvawIrzgo7QvjWAPcE5F1Dt4LU3Ma6OUDg",
+    "spkId": 1,
+    "spkPk": "BcGBIAVRG4pqREYKwTlWq02t6JMBMiBktEDDve6d4nw",
+    "spkSig": "w-0SFjJeZ_UmlKhb4OVqc-UFggvBw8xaBP4OT95LeVhC1WNcsQuawlkmvPXU8aowvrEgTHc24U4_h8VVE8tLDw",
+    "createdAt": "2026-10-22T12:00:00.000Z"
+   },
+   "matches": false
+  }
+ ]
+}

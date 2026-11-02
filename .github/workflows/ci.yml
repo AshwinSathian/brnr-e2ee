@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  # The wall-clock gate compares against a baseline recorded on the maintainer's
+  # machine, so it only runs locally. The counted-operation budget still runs here.
+  BENCH_SKIP_WALLCLOCK: "1"
+
+jobs:
+  verify:
+    name: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: ".nvmrc"
+          package-manager-cache: false
+
+      - name: Install (no lifecycle scripts)
+        run: npm ci --ignore-scripts
+
+      - name: Typecheck, lint, format, dependency allowlist, tests, build, vectors, reference
+        run: npm run verify
+
+      - name: API docs build without warnings
+        run: npm run docs
+
+      - name: Package exports and types resolve
+        run: |
+          npm run lint:package
+
+  node:
+    name: test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["22.12.0", "22", "24"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          package-manager-cache: false
+
+      # Some dev tools (eslint, Stryker, license-checker) need a newer Node than the
+      # library does. This job only runs the tests and the build, so ignore their engines.
+      - run: npm ci --ignore-scripts --engine-strict=false
+      - run: npm test
+      - run: npm run build
+
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: zizmor (workflow audit)
+        run: pipx run zizmor==1.31.1 --min-severity=low .github/workflows # zizmor: ignore[adhoc-packages] pinned exact
+
+      - name: semgrep
+        run: pipx run semgrep==1.182.0 scan --error --config p/typescript --config p/secrets src scripts # zizmor: ignore[adhoc-packages] pinned exact
+
+      - name: OSV-Scanner
+        uses: google/osv-scanner-action/osv-scanner-action@b1d267aea5211fa648d9d442fa64b90dbdcbdd36 # v2.7.0
+        with:
+          scan-args: --lockfile=package-lock.json --config=osv-scanner.toml

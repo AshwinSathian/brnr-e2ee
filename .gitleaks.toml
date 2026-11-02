@@ -1,0 +1,7 @@
+# Published test vectors (RFCs, Wycheproof) and generated deterministic vectors are not secrets.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public test vectors only"
+paths = ['''^test/data/''', '''^vectors/''']

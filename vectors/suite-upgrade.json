@@ -1,0 +1,261 @@
+{
+ "description": "A v1 state gains a v2 session when the peer's new SPK offers v2 (SPEC §9.1, §18); once the state is v2, the v1 message still in flight is refused (E2EE_UNSUPPORTED_SUITE), and both sides continue on the v2 session",
+ "generator": "scripts/gen-vectors.ts",
+ "conversationId": "conv-vectors",
+ "startTime": "2026-10-22T12:00:00.000Z",
+ "parties": [
+  {
+   "name": "alice",
+   "seed": "766563746f722f616c6963650000000000000000000000000000000000000000",
+   "deviceId": "alice-dev",
+   "tape": [
+    {
+     "purpose": "health",
+     "bytes": "6eb99a02e4a0e5fd80bc9c8b1c644477c041c59cf9ecb162ed82ff01e6d97d52"
+    },
+    {
+     "purpose": "health",
+     "bytes": "40cc4bf09669ffa3bcc2b7e33f868c691db8ff14b73b2d5ccd7fe5f02f056e7f"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "c57df5364be9b2a43b3d38e9d72b268b7e5780845a52dcdb426af1aff9834e0a"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "69a9e1b6891ff2ec53d39a186cff4f1cb5433d28561c65cad5c63cf0fcaafd2c"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "8ae24805ea38d28f9f9ca53710412e968975b7fa834229f21f8c72122059e96d"
+    },
+    {
+     "purpose": "ek",
+     "bytes": "81e0bff7532422b643d80c9d1ffd616e51de11cdd56628366d105242b4413b75"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "e9992a8d36b3d3280d6fca854de7a889aaaea371e7a692913b5b58d3800d9fac"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "d692c560e20cf30ae4fa3704cb87af9540e012a5731412d5"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "395f2db91e9181c10de2fa6aea4d0d7e7c74b804f5723db80495cc9783c70032"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "9f6a8aa89575a4bc05b643030462d2f6eea49a04bf480dbb"
+    },
+    {
+     "purpose": "ek",
+     "bytes": "9c3282c298e3e2ac39ac460f407de451dc81f60f02a7fb913da85481b9a40013"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "b6c31c3f9bad184a4a0a117e395c9815c49c0682cc0aef4f06a9f9c48ba03c60"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "33a7bd6a9fb03c08f61c4ea607671a375d2ffb159df9cde7"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "5e035d4b5434172220e82290c77e99ea751c2764e02cfdb329d8fbc230476366"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "eab880097e84b9c3603ee7f301c5ddf27cb4cd38e563ad94"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "171a11e8745db83744d1e75f894676615578d725c52735fd594c3f8eea582b37"
+    }
+   ]
+  },
+  {
+   "name": "bob",
+   "seed": "766563746f722f626f6200000000000000000000000000000000000000000000",
+   "deviceId": "bob-dev",
+   "tape": [
+    {
+     "purpose": "health",
+     "bytes": "0ccba5fb8f29c32bb18fd66d011dcd7de35ca2a1a49cac4655fc343a47cf8113"
+    },
+    {
+     "purpose": "health",
+     "bytes": "d386df431c9783b7655b7f4f2060589a0bc172dad75999f5593b2a45a64e9afd"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "5575e5945f91bf5d947e514f3f8b2d9b805a4cbdd87db4ffca6780ed414777c7"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "9b74a3102653b3139151f88058aa2c47a64b2da4bba69ae51b6a2b074bc1e766"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "a152437c524c92ad725e936cc38447c96e182357586ed1d11479b7a46bbb28fd"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "83ed4a7d2dbf7ab6836c3dff60f839c9b8d61fd67f2beaccb2b26cde2fa1360b"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "e940e6fe47d1e050c91b02bd2dbeefac4f691ff000f90e0c33e2853d0841019a"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "847ea492210a922dcd70f79a3a19d5b81a6c57757ca12e57"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "bc6c9552041897dd85035fe401964d28966478e40d2c7f6135975097890a9e02"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "f6370077c44dfb2ade3303844b812f3434e1478b2fe89bec6d4b079befd7c0b0"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "8ad67415181913ae9c3372bbee36135daa8fca2eb426eecbe1de27b6e9229c1a"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "408c6036bca66e4ae6f08d8020752edc9db0c4507ff81873"
+    },
+    {
+     "purpose": "dhs",
+     "bytes": "2de97d2b6291ae2c399ae573400e4806fa47fbf6fbe4d67cbed75401bf101a89"
+    },
+    {
+     "purpose": "nonce",
+     "bytes": "414e09b95bce0d63c25304d76fd3311bf97a9205b001c0ed"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "type": "initiate",
+   "by": "alice",
+   "to": "bob",
+   "otp": true
+  },
+  {
+   "type": "send",
+   "by": "alice",
+   "plaintext": "v1 hello",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2},\"ciphertext\":\"aVdNegQdHpuylJpx-x2nCV8p6YXmsYYKh25ryzT4BJ9Vzs3womHrNClTn9SKLE_9DO_QxIwvGk-yZcZeDp7KFW-Tb8XMuFlTGHB5qrK2Yj0\",\"handshake\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"otpId\":1,\"spkId\":1,\"v\":2},\"header\":{\"dh\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"n\":0,\"pn\":0,\"sid\":\"b_Bsa_VFtLE\"},\"nonce\":\"1pLFYOIM8wrk-jcEy4evlUDgEqVzFBLV\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "bob",
+   "from": "alice",
+   "message": 0,
+   "plaintext": "v1 hello",
+   "messageKey": "UZDeYi4zzl9UI1_sfv1wu47CbcdrOtzqUjhe0xl3WPk"
+  },
+  {
+   "type": "send",
+   "by": "bob",
+   "plaintext": "v1 reply",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"senderDeviceId\":\"bob-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2},\"ciphertext\":\"Czs78wrAKJXIo1JomoRdATtnvNSkkLHTxMwK3B93_KUD4eIh6Vv7bcxgMwtxjeHZ03ZU6rIeYWfcLfV6WptO7ZVYkmb93CXQl7lKRGDcxgg\",\"header\":{\"dh\":\"4sEYv-2zu9wxOnj047BAy9wk63xuBrVrXR9EtMG0WW0\",\"n\":0,\"pn\":0,\"sid\":\"b_Bsa_VFtLE\"},\"nonce\":\"hH6kkiEKki3NcPeaOhnVuBpsV3V8oS5X\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "alice",
+   "from": "bob",
+   "message": 1,
+   "plaintext": "v1 reply",
+   "messageKey": "j7fj8IdQbWzFZ_S6fMT_ygj4oucbVihU8uO7PCpGHR4"
+  },
+  {
+   "type": "rotate",
+   "by": "bob",
+   "suites": [
+    "x25519-xchacha20poly1305-sha256-v2",
+    "x25519-xchacha20poly1305-sha256-v1"
+   ]
+  },
+  {
+   "type": "send",
+   "by": "alice",
+   "plaintext": "v1, delivered late",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2},\"ciphertext\":\"okOTaJKEybkCmW9K85brMokxHiyomhCGwvXNsvIUIJCTXanFXd2fdZsRYkBlG-e_JvweYwTcD_FL-7ic7GCUsrMSW7T32BFPqbDA_jsftH0\",\"header\":{\"dh\":\"VUGY9fYSUbNkYEIuXIvFka9jppZqP1vww7s3rk1-iyA\",\"n\":0,\"pn\":1,\"sid\":\"b_Bsa_VFtLE\"},\"nonce\":\"n2qKqJV1pLwFtkMDBGLS9u6kmgS_SA27\",\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2}"
+  },
+  {
+   "type": "initiate",
+   "by": "alice",
+   "to": "bob",
+   "otp": true
+  },
+  {
+   "type": "send",
+   "by": "alice",
+   "plaintext": "first v2 message",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"bob-dev\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"BE_b9HLshTpexdpuz9VHq97AqizV8PzofwqlNH9iXwKhrHi597P0gIX_i7_4Ezox1OXYdIaCAep-wmvY-eCmrWKRbbPEmQSs16Mvyeep388\",\"handshake\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"R5riYu8tkCj0-Caxd-PYAZDfRr717LwhH08kz9kqmjQ\",\"initiatorSignPk\":\"jD4oj1diWY1EkGdc0O8MI3YaUDd2d7EjiZO7WjD3bVY\",\"otpId\":2,\"responderDeviceId\":\"bob-dev\",\"responderSignPk\":\"ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w\",\"spkId\":2,\"v\":2},\"header\":{\"dh\":\"D1zCL9FZOwTKATkXeMpc0wzA-Nb_d20KpmqGLJ2T-U4\",\"n\":0,\"pn\":0,\"sid\":\"i_MIgarZUBI\"},\"nonce\":\"M6e9ap-wPAj2HE6mB2caN10v-xWd-c3n\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "bob",
+   "from": "alice",
+   "message": 3,
+   "plaintext": "first v2 message",
+   "messageKey": "K2FWFrHe__LxuMIcimOfodFfhCj-n0CrROdcb5xF5aE"
+  },
+  {
+   "type": "recv",
+   "by": "bob",
+   "from": "alice",
+   "message": 2,
+   "error": "E2EE_UNSUPPORTED_SUITE"
+  },
+  {
+   "type": "send",
+   "by": "bob",
+   "plaintext": "reply on the active session",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"alice-dev\",\"senderDeviceId\":\"bob-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"jlWbyJrRmRWnkZzwkjxX7rwdCEy2iL4FGYrTzQ7bUXKbwSZiy99lbCbPb3vWf-6itTMy5Y4yycktkxEP3aqIb7MCm9gg9XkS4gp0VaI5lmM\",\"header\":{\"dh\":\"K4XRZHaQB_eYamlrYgXRt97RIWoYofTeiUTesBJFrQY\",\"n\":0,\"pn\":0,\"sid\":\"i_MIgarZUBI\"},\"nonce\":\"QIxgNrymbkrm8I2AIHUu3J2wxFB_-Bhz\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "alice",
+   "from": "bob",
+   "message": 4,
+   "plaintext": "reply on the active session",
+   "messageKey": "NyWnj2Nx22hitvhCg9vHkKONY5MyZIbdckQhwWi-akE"
+  },
+  {
+   "type": "send",
+   "by": "alice",
+   "plaintext": "v2 again",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"bob-dev\",\"senderDeviceId\":\"alice-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"b6_-seFyKw96Gn_jNkFKe2jB7ABpO4-Gk1w-5XMv5skdBz_nYNxwqhVnbeeS-XpwynkrkX4GVWcXKNpbYJg5IfoECwzdVNr2l6-Rg39AmoY\",\"header\":{\"dh\":\"L93SX7BBiHE--McbFJEFsLG3IVhOUWaoCvkupEvj9no\",\"n\":0,\"pn\":1,\"sid\":\"i_MIgarZUBI\"},\"nonce\":\"6riACX6EucNgPufzAcXd8ny0zTjlY62U\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "bob",
+   "from": "alice",
+   "message": 5,
+   "plaintext": "v2 again",
+   "messageKey": "7sDagFOlv_U1aC3BShk8s7Uy1MdupcezQz__HrHDjIs"
+  },
+  {
+   "type": "send",
+   "by": "bob",
+   "plaintext": "v2 reply",
+   "message": "{\"ad\":{\"conversationId\":\"conv-vectors\",\"recipientDeviceId\":\"alice-dev\",\"senderDeviceId\":\"bob-dev\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2},\"ciphertext\":\"NvsgRXxgavvgQNPXY5_LnzdJ6cwVkZ-YAndHHkTbO-ns-JwheR2uutkmpS4oKksRu1iQ7uhndeKgAEEba-_tdNmQNPwph6qTZmvGhXnUGc8\",\"header\":{\"dh\":\"OjD0Ut-kSim-fbAeWaAjsfEYZ-QzAa84VXxIehy4fQM\",\"n\":0,\"pn\":1,\"sid\":\"i_MIgarZUBI\"},\"nonce\":\"QU4JuVvODWPCUwTXb9MxG_l6kgWwAcDt\",\"suite\":\"x25519-xchacha20poly1305-sha256-v2\",\"v\":2}"
+  },
+  {
+   "type": "recv",
+   "by": "alice",
+   "from": "bob",
+   "message": 6,
+   "plaintext": "v2 reply",
+   "messageKey": "JdW4dbbvO13GWSBl1j1x3s8NTgc--K3tif0oVbke-9w"
+  }
+ ]
+}

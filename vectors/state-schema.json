@@ -1,0 +1,20 @@
+{
+ "description": "SessionStateV2 parse (SPEC §9.2): valid; BRNR v1 → E2EE_UNSUPPORTED_VERSION; missing field → E2EE_INVALID_STATE",
+ "cases": [
+  {
+   "name": "valid v2 state",
+   "serialized": "{\"acceptedHandshakes\":[\"yMDVzM7_BbZpgb4k4Y5kMXf1YKFzMBUkJSNhMSv9VE8\"],\"activeSid\":\"b_Bsa_VFtLE\",\"conversationId\":\"conv-vectors\",\"peerBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"peerDeviceId\":\"alice-dev\",\"pendingOtpDeletes\":[1],\"pendingReplayRecords\":[{\"hsDigest\":\"yMDVzM7_BbZpgb4k4Y5kMXf1YKFzMBUkJSNhMSv9VE8\",\"spkId\":1}],\"selfBoxPk\":\"Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis\",\"selfDeviceId\":\"bob-dev\",\"sessions\":[{\"ckr\":\"2O28_dYA57EeKhMLSs7aEREOOJwvy60zsRloGERMChc\",\"cks\":\"ibRDk9f6F_GG_0ORTYQb5j7APcWRgVd927F77hZ5qh8\",\"createdAt\":\"2026-10-22T12:00:00.000Z\",\"dhr\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"dhs\":{\"pk\":\"4sEYv-2zu9wxOnj047BAy9wk63xuBrVrXR9EtMG0WW0\",\"sk\":\"6UDm_kfR4FDJGwK9Lb7vrE9pH_AA-Q4MM-KFPQhBAZo\"},\"founding\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"otpId\":1,\"spkId\":1,\"v\":2},\"lastUsedAt\":\"2026-10-22T12:00:00.000Z\",\"nr\":1,\"ns\":0,\"pn\":0,\"prevRemoteDh\":[],\"rk\":\"BuUWu3pq-S5XdojmPwLpvMv_WgR5WczZeoXW-FLoLMY\",\"role\":\"responder\",\"sid\":\"b_Bsa_VFtLE\"}],\"skipped\":[],\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2}",
+   "result": "ok"
+  },
+  {
+   "name": "BRNR v1 state",
+   "serialized": "{\"sessionId\":\"s\",\"rootKeyB64\":\"AA==\",\"sendChainKeyB64\":\"AA==\",\"recvChainKeyB64\":null}",
+   "result": "E2EE_UNSUPPORTED_VERSION"
+  },
+  {
+   "name": "missing peerDeviceId",
+   "serialized": "{\"acceptedHandshakes\":[\"yMDVzM7_BbZpgb4k4Y5kMXf1YKFzMBUkJSNhMSv9VE8\"],\"activeSid\":\"b_Bsa_VFtLE\",\"conversationId\":\"conv-vectors\",\"peerBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"pendingOtpDeletes\":[1],\"pendingReplayRecords\":[{\"hsDigest\":\"yMDVzM7_BbZpgb4k4Y5kMXf1YKFzMBUkJSNhMSv9VE8\",\"spkId\":1}],\"selfBoxPk\":\"Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis\",\"selfDeviceId\":\"bob-dev\",\"sessions\":[{\"ckr\":\"2O28_dYA57EeKhMLSs7aEREOOJwvy60zsRloGERMChc\",\"cks\":\"ibRDk9f6F_GG_0ORTYQb5j7APcWRgVd927F77hZ5qh8\",\"createdAt\":\"2026-10-22T12:00:00.000Z\",\"dhr\":\"McByelAsc1mdYGZ4H809m16m_Z_-lJV3n7vRZk2uFmc\",\"dhs\":{\"pk\":\"4sEYv-2zu9wxOnj047BAy9wk63xuBrVrXR9EtMG0WW0\",\"sk\":\"6UDm_kfR4FDJGwK9Lb7vrE9pH_AA-Q4MM-KFPQhBAZo\"},\"founding\":{\"initiatorBoxPk\":\"lLUDQ4IwzWUVO68y5nt1jDWhuHcHaPGhV9vzNpYfayE\",\"initiatorEphPk\":\"B7eaFyk9H8fceReLeA4U_Ubc5oz27fJtqBz7hUU5DDA\",\"otpId\":1,\"spkId\":1,\"v\":2},\"lastUsedAt\":\"2026-10-22T12:00:00.000Z\",\"nr\":1,\"ns\":0,\"pn\":0,\"prevRemoteDh\":[],\"rk\":\"BuUWu3pq-S5XdojmPwLpvMv_WgR5WczZeoXW-FLoLMY\",\"role\":\"responder\",\"sid\":\"b_Bsa_VFtLE\"}],\"skipped\":[],\"suite\":\"x25519-xchacha20poly1305-sha256-v1\",\"v\":2}",
+   "result": "E2EE_INVALID_STATE"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Runs the full local gate before any push. Enable with: git config core.hooksPath .githooks
+set -euo pipefail
+npm run verify
+npm run check:security

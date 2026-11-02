@@ -1,0 +1,113 @@
+{
+  "name": "brnr-e2ee",
+  "version": "1.1.0",
+  "description": "End-to-end encryption for 1:1 messaging in TypeScript: X3DH, the Double Ratchet with XChaCha20-Poly1305, and Sesame-style session management.",
+  "license": "MIT",
+  "author": "Ashwin Sathian <ashwinsathyan19@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshwinSathian/brnr-e2ee.git"
+  },
+  "homepage": "https://github.com/AshwinSathian/brnr-e2ee#readme",
+  "bugs": {
+    "url": "https://github.com/AshwinSathian/brnr-e2ee/issues"
+  },
+  "keywords": [
+    "e2ee",
+    "end-to-end-encryption",
+    "x3dh",
+    "double-ratchet",
+    "signal-protocol",
+    "sesame",
+    "xchacha20-poly1305",
+    "x25519",
+    "ed25519",
+    "cryptography",
+    "messaging"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "files": [
+    "dist",
+    "vectors"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./testing": {
+      "import": {
+        "types": "./dist/testing.d.ts",
+        "default": "./dist/testing.js"
+      },
+      "require": {
+        "types": "./dist/testing.d.cts",
+        "default": "./dist/testing.cjs"
+      }
+    },
+    "./vectors/*": "./vectors/*",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:release": "FC_NUM_RUNS=10000 vitest run",
+    "check:deps": "node scripts/check-deps.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run format:check && npm run check:deps && npm test && npm run build && npm run vectors:check && npm run ref:check",
+    "check:security": "bash scripts/security-check.sh",
+    "check:all": "npm run verify && npm run check:security",
+    "vectors:gen": "node --import ./scripts/ts-hooks.mjs scripts/gen-vectors.ts",
+    "vectors:check": "node --import ./scripts/ts-hooks.mjs scripts/gen-vectors.ts --check",
+    "ref:check": "node scripts/ref/check.mjs",
+    "mutation": "FC_NUM_RUNS=25 BENCH_SKIP_WALLCLOCK=1 stryker run && node scripts/mutation-gate.mjs",
+    "docs": "typedoc",
+    "lint:package": "publint --strict && attw --pack . --profile node16"
+  },
+  "dependencies": {
+    "@noble/ciphers": "2.4.0",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "zod": "4.6.6"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@eslint/js": "10.0.1",
+    "@stryker-mutator/core": "10.0.0",
+    "@stryker-mutator/vitest-runner": "10.0.0",
+    "@types/node": "24.19.1",
+    "eslint": "10.12.0",
+    "fast-check": "4.10.2",
+    "license-checker-rseidelsohn": "5.0.1",
+    "prettier": "3.9.9",
+    "publint": "0.3.25",
+    "tsup": "8.5.1",
+    "typedoc": "0.28.20",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.1",
+    "vitest": "5.0.3"
+  },
+  "overrides": {
+    "qs": "6.16.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

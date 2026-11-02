@@ -1,0 +1,216 @@
+{
+ "description": "Device bundle (SPEC §5.3-§5.4): boxpk, SPK and suite-strip negatives",
+ "generator": "scripts/gen-vectors.ts",
+ "conversationId": "conv-vectors",
+ "startTime": "2026-10-22T12:00:00.000Z",
+ "bundle": {
+  "v": 2,
+  "suites": [
+   "x25519-xchacha20poly1305-sha256-v1"
+  ],
+  "deviceId": "bob-dev",
+  "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+  "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+  "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+  "spkId": 1,
+  "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+  "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+  "createdAt": "2026-10-22T12:00:00.000Z",
+  "otp": {
+   "otpId": 1,
+   "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+  }
+ },
+ "result": "ok",
+ "negatives": [
+  {
+   "name": "deviceBoxPk swapped (boxpk signature)",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQk",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_BUNDLE_SIGNATURE_INVALID"
+  },
+  {
+   "name": "spkPk swapped (spk signature)",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQk",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_BUNDLE_SIGNATURE_INVALID"
+  },
+  {
+   "name": "createdAt changed",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.001Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_BUNDLE_SIGNATURE_INVALID"
+  },
+  {
+   "name": "suites stripped to another id",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v0"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_BUNDLE_SIGNATURE_INVALID"
+  },
+  {
+   "name": "unknown v",
+   "bundle": {
+    "v": 3,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_UNSUPPORTED_VERSION"
+  },
+  {
+   "name": "unknown key",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "ZdM5_IcfeLevy_EeA1lVihbNg5DQfhNQ_VLC6R7ZM_w",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    },
+    "extra": "x"
+   },
+   "result": "E2EE_INVALID_INPUT"
+  },
+  {
+   "name": "small-order deviceSignPk",
+   "bundle": {
+    "v": 2,
+    "suites": [
+     "x25519-xchacha20poly1305-sha256-v1"
+    ],
+    "deviceId": "bob-dev",
+    "deviceSignPk": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "deviceBoxPk": "Sh19ETndClFJGzXaCXqRaBMpsyuyrx3yo2ag_0hhZis",
+    "deviceBoxPkSig": "fp1kGYtvA-1Dba5YJhs9AoG3Xapjk5FxIjpICWYn5P7P_vwVDY9wBGih4Ba2wHYPYtL3K8-cvlWtDwr7cxFqBA",
+    "spkId": 1,
+    "spkPk": "CjzDEYW-Vl49r-_vVItVk8D-oOTgbSrDAghgN5mfggM",
+    "spkSig": "vYLVteY9o5aGb21XIiUAQD5tZ8h1WKC2K2_Ydl0asvk6dXyZTD1JdKwRTNST6fAlIfVqWYPGIOY9zyQtH0otCQ",
+    "createdAt": "2026-10-22T12:00:00.000Z",
+    "otp": {
+     "otpId": 1,
+     "pk": "m71PJbWrt0j4DWFMeCKvLerkvMUkbHOH2x63UtoYrjc"
+    }
+   },
+   "result": "E2EE_INVALID_KEY"
+  }
+ ],
+ "parties": [
+  {
+   "name": "bob",
+   "seed": "766563746f722f626f6200000000000000000000000000000000000000000000",
+   "deviceId": "bob-dev",
+   "tape": [
+    {
+     "purpose": "health",
+     "bytes": "0ccba5fb8f29c32bb18fd66d011dcd7de35ca2a1a49cac4655fc343a47cf8113"
+    },
+    {
+     "purpose": "health",
+     "bytes": "d386df431c9783b7655b7f4f2060589a0bc172dad75999f5593b2a45a64e9afd"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "5575e5945f91bf5d947e514f3f8b2d9b805a4cbdd87db4ffca6780ed414777c7"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "9b74a3102653b3139151f88058aa2c47a64b2da4bba69ae51b6a2b074bc1e766"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "a152437c524c92ad725e936cc38447c96e182357586ed1d11479b7a46bbb28fd"
+    },
+    {
+     "purpose": "seed",
+     "bytes": "83ed4a7d2dbf7ab6836c3dff60f839c9b8d61fd67f2beaccb2b26cde2fa1360b"
+    }
+   ]
+  }
+ ],
+ "events": []
+}

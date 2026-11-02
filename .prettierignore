@@ -1,0 +1,8 @@
+test/data/
+vectors/
+dist/
+coverage/
+reports/
+.stryker-tmp/
+docs-site/
+.claude/
