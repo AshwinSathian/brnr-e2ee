@@ -1,6 +1,7 @@
 // F1-F3: size caps run before any per-element or per-character work (SPEC §4.1, §4.7, §9.1).
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, writeFileSync } from "node:fs";
+import * as nodeModule from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,37 +12,45 @@ import { expectCode, makeE2ee } from "../helpers.js";
 import { initiate, party, receive, send } from "../parties.js";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
+// The child runs src/*.ts directly, which needs type stripping and registerHooks (not in Node 22.12).
+const runsTs =
+  Boolean((process.features as { typescript?: unknown }).typescript) &&
+  "registerHooks" in nodeModule;
 
 describe("F1: device list entry cap", () => {
-  it("a ~900 KB list of 300,000 entries gives DEVICE_LIST_INVALID inside a 256 MB heap", () => {
-    const dir = mkdtempSync(join(tmpdir(), "brnr-f1-"));
-    const evil = `{"v":1,"accountId":"a","accountSignPk":"x","epoch":1,"devices":[${Array(300_000).fill("{}").join(",")}],"sig":"x"}`;
-    expect(evil.length).toBeLessThan(1_000_000);
-    const evilPath = join(dir, "evil.json");
-    writeFileSync(evilPath, evil);
-    const script = join(dir, "run.mjs");
-    writeFileSync(
-      script,
-      `import { readFileSync } from "node:fs";
+  it.runIf(runsTs)(
+    "a ~900 KB list of 300,000 entries gives DEVICE_LIST_INVALID inside a 256 MB heap",
+    () => {
+      const dir = mkdtempSync(join(tmpdir(), "brnr-f1-"));
+      const evil = `{"v":1,"accountId":"a","accountSignPk":"x","epoch":1,"devices":[${Array(300_000).fill("{}").join(",")}],"sig":"x"}`;
+      expect(evil.length).toBeLessThan(1_000_000);
+      const evilPath = join(dir, "evil.json");
+      writeFileSync(evilPath, evil);
+      const script = join(dir, "run.mjs");
+      writeFileSync(
+        script,
+        `import { readFileSync } from "node:fs";
        import { createE2ee, E2eeError } from ${JSON.stringify(join(root, "src/index.ts"))};
        const text = readFileSync(${JSON.stringify(evilPath)}, "utf8");
        try { createE2ee().parseDeviceList(text); } catch (err) {
          console.log("CAUGHT", err instanceof E2eeError, err.code);
        }`,
-    );
-    const r = spawnSync(
-      process.execPath,
-      [
-        "--max-old-space-size=256",
-        "--import",
-        join(root, "scripts/ts-hooks.mjs"),
-        script,
-      ],
-      { encoding: "utf8", timeout: 60_000 },
-    );
-    expect(r.stderr).not.toMatch(/heap out of memory/i);
-    expect(r.stdout.trim()).toBe("CAUGHT true E2EE_DEVICE_LIST_INVALID");
-  }, 120_000);
+      );
+      const r = spawnSync(
+        process.execPath,
+        [
+          "--max-old-space-size=256",
+          "--import",
+          join(root, "scripts/ts-hooks.mjs"),
+          script,
+        ],
+        { encoding: "utf8", timeout: 60_000 },
+      );
+      expect(r.stderr).not.toMatch(/heap out of memory/i);
+      expect(r.stdout.trim()).toBe("CAUGHT true E2EE_DEVICE_LIST_INVALID");
+    },
+    120_000,
+  );
 
   it("the cap runs after the version rule and in buildSignedDeviceList", () => {
     const { e } = makeE2ee("f1");
