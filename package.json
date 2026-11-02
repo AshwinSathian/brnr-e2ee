@@ -91,17 +91,17 @@
     "@eslint/js": "10.0.1",
     "@stryker-mutator/core": "10.0.0",
     "@stryker-mutator/vitest-runner": "10.0.0",
-    "@types/node": "24.19.1",
-    "eslint": "10.12.0",
+    "@types/node": "24.19.2",
+    "eslint": "10.13.0",
     "fast-check": "4.10.2",
     "license-checker-rseidelsohn": "5.0.1",
-    "prettier": "3.9.9",
+    "prettier": "3.9.10",
     "publint": "0.3.25",
-    "tsup": "8.5.1",
+    "tsup": "9.0.0",
     "typedoc": "0.28.20",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.71.1",
-    "vitest": "5.0.3"
+    "typescript-eslint": "8.71.2",
+    "vitest": "5.0.5"
   },
   "overrides": {
     "qs": "6.16.1"
